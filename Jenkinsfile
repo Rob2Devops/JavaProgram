@@ -8,7 +8,6 @@ pipeline {
 			steps {
 				echo 'Software Compilation Complete.'
 				}
-			}
 		}
 
 		stage ('Testing Stage'){
@@ -16,7 +15,6 @@ pipeline {
 			steps {
 				echo 'Software Testing Complete.'
 				}
-			}
 		}
 
 		stage ('Deployment Stage'){
@@ -24,7 +22,6 @@ pipeline {
             steps {
                 echo 'Software Deployment Complete.'
                 }
-            }
         }
 
 	}

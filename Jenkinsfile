@@ -6,23 +6,29 @@ pipeline {
 		stage ('Compile Stage') {
 
 			steps {
-				echo 'Software Compilation Complete.'
+				withMaven(maven: 'maven_3_6_3') {
+					sh 'mvn clean compile'
 				}
+			}
 		}
 
 		stage ('Testing Stage'){
 
 			steps {
-				echo 'Software Testing Complete.'
+				withMaven(maven: 'maven_3_6_3') {
+					sh 'mvn test'
 				}
+			}
 		}
 
 		stage ('Deployment Stage'){
 
             steps {
-                echo 'Software Deployment Complete.'
+				withMaven(maven: 'maven_3_6_3') {
+					sh 'mvn deploy'
                 }
-        }
+        	}
+		}
 
 	}
 

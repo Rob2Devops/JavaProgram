@@ -12,11 +12,11 @@ pipeline {
 			}
 		}
 
-		stage ('Testing Stage'){
+		stage ('SonarQube Analysis'){
 
 			steps {
-				withMaven(maven: 'maven_3_6_3') {
-					sh 'mvn test'
+				withSonarQubeEnv(credentialsId: '07a91e39387d3e1b9a273d72578831c92cfc8826', installationName: 'My SonarQube Server') {
+      				sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
 				}
 			}
 		}
